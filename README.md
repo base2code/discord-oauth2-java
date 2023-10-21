@@ -24,14 +24,15 @@ A small oauth2 java wrapper for the discord oauth2 api to retrieve basic user in
 
 ### Get Authorization URL
 ```java
-    DiscordOAuth(
+    DiscordOAuth discordOAuth = new DiscordOAuth(
         "CLIENT_ID",
         "CLIENT_SECRET",
         "REDIRECT_URI",
         new String[]{
             "identify",
             "email"
-        }).getAuthorizationURL();
+        });
+    String authorizationURL = discordOAuth.getAuthorizationURL();
 ```
 
 ### Get the access token
