@@ -27,6 +27,10 @@ public class DiscordOAuth {
     }
 
     public String getAuthorizationURL(String state) throws IOException {
+        return getAuthorizationURL(state, redirectUri);
+    }
+
+    public String getAuthorizationURL(String state, String redirectUri) throws IOException {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(propertyManager.getBaseUri() + "/oauth2/authorize").newBuilder();
         urlBuilder.addQueryParameter("response_type", "code");
         urlBuilder.addQueryParameter("client_id", clientID);
