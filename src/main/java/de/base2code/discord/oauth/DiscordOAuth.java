@@ -43,6 +43,10 @@ public class DiscordOAuth {
     }
 
     public DiscordOauthAuthorizeResponse requestTokens(String code) throws IOException {
+        return requestTokens(code, redirectUri);
+    }
+
+    public DiscordOauthAuthorizeResponse requestTokens(String code, String redirectUri) throws IOException {
         FormBody formBody = new FormBody.Builder()
                 .add("grant_type", "authorization_code")
                 .add("code", code)
